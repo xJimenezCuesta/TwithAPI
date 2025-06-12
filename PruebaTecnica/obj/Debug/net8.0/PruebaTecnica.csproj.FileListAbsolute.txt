@@ -1,0 +1,67 @@
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\bin\Debug\net8.0\appsettings.json
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\bin\Debug\net8.0\PruebaTecnica.exe
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\bin\Debug\net8.0\PruebaTecnica.deps.json
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\bin\Debug\net8.0\PruebaTecnica.runtimeconfig.json
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\bin\Debug\net8.0\PruebaTecnica.dll
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\bin\Debug\net8.0\PruebaTecnica.pdb
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.csproj.AssemblyReference.cache
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.AssemblyInfoInputs.cache
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.AssemblyInfo.cs
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.csproj.CoreCompileInputs.cache
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\staticwebassets\msbuild.PruebaTecnica.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\staticwebassets\msbuild.build.PruebaTecnica.props
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.PruebaTecnica.props
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.PruebaTecnica.props
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\scopedcss\bundle\PruebaTecnica.styles.css
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\PruebaTe.5DFE3EDD.Up2Date
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.dll
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\refint\PruebaTecnica.dll
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.pdb
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.genruntimeconfig.cache
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\obj\Debug\net8.0\ref\PruebaTecnica.dll
+C:\Users\soyxa\OneDrive\Escritorio\PruebaTecnica\PruebaTecnica\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\bin\Debug\net8.0\appsettings.json
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\bin\Debug\net8.0\PruebaTecnica.exe
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\bin\Debug\net8.0\PruebaTecnica.deps.json
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\bin\Debug\net8.0\PruebaTecnica.runtimeconfig.json
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\bin\Debug\net8.0\PruebaTecnica.dll
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\bin\Debug\net8.0\PruebaTecnica.pdb
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.csproj.AssemblyReference.cache
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.AssemblyInfoInputs.cache
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.AssemblyInfo.cs
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.csproj.CoreCompileInputs.cache
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.sourcelink.json
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\staticwebassets\msbuild.PruebaTecnica.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\staticwebassets\msbuild.build.PruebaTecnica.props
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.PruebaTecnica.props
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.PruebaTecnica.props
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\scopedcss\bundle\PruebaTecnica.styles.css
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\PruebaTe.5DFE3EDD.Up2Date
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.dll
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\refint\PruebaTecnica.dll
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.pdb
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\PruebaTecnica.genruntimeconfig.cache
+C:\Users\soyxa\OneDrive\Escritorio\Nueva carpeta\TwithAPI\PruebaTecnica\obj\Debug\net8.0\ref\PruebaTecnica.dll
