@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\soyxa\\OneDrive\\Escritorio\\Nueva carpeta\\TwithAPI\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{902A04F6-E3DA-429D-8328-8D67CF9906D0}|PruebaTecnica\\PruebaTecnica.csproj|c:\\users\\soyxa\\onedrive\\escritorio\\nueva carpeta\\twithapi\\pruebatecnica\\controllers\\twitchapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{902A04F6-E3DA-429D-8328-8D67CF9906D0}|PruebaTecnica\\PruebaTecnica.csproj|solutionrelative:pruebatecnica\\controllers\\twitchapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TwitchAPI.cs",
+              "DocumentMoniker": "C:\\Users\\soyxa\\OneDrive\\Escritorio\\Nueva carpeta\\TwithAPI\\PruebaTecnica\\Controllers\\TwitchAPI.cs",
+              "RelativeDocumentMoniker": "PruebaTecnica\\Controllers\\TwitchAPI.cs",
+              "ToolTip": "C:\\Users\\soyxa\\OneDrive\\Escritorio\\Nueva carpeta\\TwithAPI\\PruebaTecnica\\Controllers\\TwitchAPI.cs",
+              "RelativeToolTip": "PruebaTecnica\\Controllers\\TwitchAPI.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAIwDsAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T18:07:06.777Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

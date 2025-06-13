@@ -1,4 +1,6 @@
-﻿namespace PruebaTecnica.Responses
+﻿using PruebaTecnica.Models;
+
+namespace PruebaTecnica.Responses
 {
     public class GetByIdResponse
     {

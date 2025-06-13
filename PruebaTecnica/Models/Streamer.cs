@@ -1,4 +1,4 @@
-﻿namespace PruebaTecnica.Responses
+﻿namespace PruebaTecnica.Models
 {
     public class Streamer
     {
