@@ -8,7 +8,7 @@ using System.Net.Http.Headers;
 namespace PruebaTecnica.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("analytics")]
     public class TwitchAPI : ControllerBase
     {
         const string URL_GET = "https://api.twitch.tv/helix/channels?broadcaster_id=";
@@ -20,7 +20,7 @@ namespace PruebaTecnica.Controllers
 
         public TwitchAPI() { }
 
-        [HttpGet]
+        [HttpGet("user")]
         public async Task<Streamer> Get(string id)
         {
             using (HttpClient client = new HttpClient())
@@ -44,7 +44,7 @@ namespace PruebaTecnica.Controllers
             }
         }
 
-        [HttpGet("Live")]
+        [HttpGet("streams")]
         public async Task<GetLiveStreamsResponse> GetLiveStreams()
         {
             using (HttpClient client = new HttpClient())
