@@ -86,9 +86,18 @@ namespace PruebaTecnica.Controllers
                     return Unauthorized(new Excepcion("Unauthorized. Twitch access token is invalid or has expired."));
                 }
 
-                var data = await respuesta.Content.ReadAsStringAsync();
-                var streams = JsonConvert.DeserializeObject<GetLiveStreamsResponse>(data);
-                return Ok(streams.Data);
+                if (respuesta.IsSuccessStatusCode)
+                {
+
+                    var data = await respuesta.Content.ReadAsStringAsync();
+                    var streams = JsonConvert.DeserializeObject<GetLiveStreamsResponse>(data);
+                    return Ok(streams.Data);
+                }
+                else
+                {
+                    string errorContent = await respuesta.Content.ReadAsStringAsync();
+                    return StatusCode(500, new Excepcion("Internal server error."));
+                }
             }
         }
 
