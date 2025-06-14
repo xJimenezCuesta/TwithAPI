@@ -41,7 +41,16 @@ namespace PruebaTecnica.Controllers
             {
                 var data = await respuesta.Content.ReadAsStringAsync();
                 Streamer streamer = JsonConvert.DeserializeObject<GetByIdResponse>(data).Data.FirstOrDefault();
-                return Ok(streamer);
+                
+                if (streamer == null)
+                {
+                    return NotFound("No se ha encontrado el streamer con id "+id);
+                }
+                else
+                {
+                    return Ok(streamer);
+                }
+                
             }
             else
             {
