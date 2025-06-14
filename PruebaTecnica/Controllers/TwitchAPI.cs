@@ -62,18 +62,25 @@ namespace PruebaTecnica.Controllers
         }
 
         [HttpGet("streams")]
-        public async Task<GetLiveStreamsResponse> GetLiveStreams()
+        public async Task<IActionResult> GetLiveStreams()
         {
             using (HttpClient client = new HttpClient())
             {
                 AuthResponse auth = await GetAccessToken();
 
                 client.DefaultRequestHeaders.Add("Client-ID", CLIENT_ID);
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth.Access_token);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "hola"/*auth.Access_token*/);
 
-                HttpResponseMessage respuesta = await client.GetAsync(URL_LIVE_STREAMS); 
+                HttpResponseMessage respuesta = await client.GetAsync(URL_LIVE_STREAMS);
+
+                if (respuesta.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    return Unauthorized("El token ha caducado o es inválido");
+                }
+
                 var data = await respuesta.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<GetLiveStreamsResponse>(data);
+                var streams = JsonConvert.DeserializeObject<GetLiveStreamsResponse>(data);
+                return Ok(streams);
             }
         }
 
