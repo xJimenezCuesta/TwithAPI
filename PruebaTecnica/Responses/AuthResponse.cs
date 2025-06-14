@@ -1,5 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
+﻿
 namespace PruebaTecnica.Responses
 {
     public class AuthResponse
