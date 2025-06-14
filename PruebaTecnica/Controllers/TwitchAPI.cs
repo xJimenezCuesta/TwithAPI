@@ -89,7 +89,7 @@ namespace PruebaTecnica.Controllers
 
                 var data = await respuesta.Content.ReadAsStringAsync();
                 var streams = JsonConvert.DeserializeObject<GetLiveStreamsResponse>(data);
-                return Ok(streams);
+                return Ok(streams.Data);
             }
         }
 
