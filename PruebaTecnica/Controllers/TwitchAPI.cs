@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using PruebaTecnica.Models;
 using PruebaTecnica.Responses;
+using System.Net;
 using System.Net.Http.Headers;
 
 
@@ -28,7 +29,14 @@ namespace PruebaTecnica.Controllers
             {
                 return BadRequest("El id no tiene el formato correcto");
             }
+            
             HttpResponseMessage respuesta = await CallGetClientById(id);
+
+            if (respuesta.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                return Unauthorized("El token ha caducado o es inválido");
+            }
+
             if (respuesta.IsSuccessStatusCode)
             {
                 var data = await respuesta.Content.ReadAsStringAsync();
@@ -49,7 +57,7 @@ namespace PruebaTecnica.Controllers
 
             client.DefaultRequestHeaders.Add("Client-ID", CLIENT_ID);
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth.Access_token);
-            
+
             return await client.GetAsync(URL_GET + id);
         }
 
