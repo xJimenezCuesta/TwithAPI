@@ -2,20 +2,29 @@
 
 namespace PruebaTecnica.Models
 {
+
     public class Streamer
     {
-        public string Broadcaster_id { get; set; }
+        public string Id { get; set; }
 
-        public string Broadcaster_login { get; set; }
-        public string Broadcaster_name { get; set; }
-        public string Broadcaster_language { get; set; }
-        public string Game_id { get; set; }
-        public string Game_name { get; set; }
-        public string Title { get; set; }
-        public uint Delay { get; set; }
-        public string[] Tags { get; set; }
-        public string[] Content_classification_labels { get; set; }
-        public bool Is_branded_content { get; set; }
+        public string Login { get; set; }
+
+        public string Display_name { get; set; }
+
+        public string Type { get; set; }
+
+        public string Broadcaster_type { get; set; }
+
+        public string Description { get; set; }
+
+        public string Profile_image_url { get; set; }
+
+        public string Offline_image_url { get; set; }
+
+        public int View_count { get; set; }
+
+        public DateTime Created_at { get; set; }
+
 
         private const string ID_FORMAT = "^[0-9]{1,10}$";
 

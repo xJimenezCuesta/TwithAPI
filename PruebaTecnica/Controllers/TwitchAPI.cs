@@ -13,7 +13,7 @@ namespace PruebaTecnica.Controllers
     [Route("analytics")]
     public class TwitchAPI : ControllerBase
     {
-        const string URL_GET = "https://api.twitch.tv/helix/channels?broadcaster_id=";
+        const string URL_GET = "https://api.twitch.tv/helix/users?id=";
         const string URL_OAUTH = "https://id.twitch.tv/oauth2/token";
         const string URL_LIVE_STREAMS = "https://api.twitch.tv/helix/streams";
 
