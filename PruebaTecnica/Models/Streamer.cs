@@ -21,7 +21,7 @@ namespace PruebaTecnica.Models
 
         public static bool ValidId(string id)
         {
-            if (string.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(id) || id == "0")
             {
                 return false;
             }
