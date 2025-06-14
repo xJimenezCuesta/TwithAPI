@@ -17,7 +17,7 @@ namespace PruebaTecnica.Models
         public string[] Content_classification_labels { get; set; }
         public bool Is_branded_content { get; set; }
 
-        private const string ID_FORMAT = "^[0-9]{9}$";
+        private const string ID_FORMAT = "^[0-9]{1,10}$";
 
         public static bool ValidId(string id)
         {
