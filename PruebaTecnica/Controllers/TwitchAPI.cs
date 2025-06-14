@@ -27,14 +27,14 @@ namespace PruebaTecnica.Controllers
         {
             if (!Streamer.ValidId(id))
             {
-                return BadRequest("El id no tiene el formato correcto");
+                return BadRequest(new Excepcion("Invalid or missing 'id' parameter."));
             }
             
             HttpResponseMessage respuesta = await CallGetClientById(id);
 
             if (respuesta.StatusCode == HttpStatusCode.Unauthorized)
             {
-                return Unauthorized("El token ha caducado o es inválido");
+                return Unauthorized(new Excepcion("Unauthorized. Twitch access token is invalid or has expired."));
             }
 
             if (respuesta.IsSuccessStatusCode)
@@ -44,7 +44,7 @@ namespace PruebaTecnica.Controllers
                 
                 if (streamer == null)
                 {
-                    return NotFound("No se ha encontrado el streamer con id "+id);
+                    return NotFound( new Excepcion("User not found."));
                 }
                 else
                 {
@@ -55,7 +55,7 @@ namespace PruebaTecnica.Controllers
             else
             {
                 string errorContent = await respuesta.Content.ReadAsStringAsync();
-                return Problem();
+                return StatusCode(500, new Excepcion("Internal server error.") );
             }
         }
 
@@ -78,13 +78,13 @@ namespace PruebaTecnica.Controllers
                 AuthResponse auth = await GetAccessToken();
 
                 client.DefaultRequestHeaders.Add("Client-ID", CLIENT_ID);
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "hola"/*auth.Access_token*/);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth.Access_token);
 
                 HttpResponseMessage respuesta = await client.GetAsync(URL_LIVE_STREAMS);
 
                 if (respuesta.StatusCode == HttpStatusCode.Unauthorized)
                 {
-                    return Unauthorized("El token ha caducado o es inválido");
+                    return Unauthorized(new Excepcion("Unauthorized. Twitch access token is invalid or has expired."));
                 }
 
                 var data = await respuesta.Content.ReadAsStringAsync();
