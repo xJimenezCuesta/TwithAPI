@@ -6,7 +6,6 @@ using System.Net;
 using System.Net.Http.Headers;
 
 
-
 namespace PruebaTecnica.Controllers
 {
     [ApiController]
@@ -23,7 +22,7 @@ namespace PruebaTecnica.Controllers
         public TwitchAPI() { }
 
         [HttpGet("user")]
-        public async Task<IActionResult> Get(string id)
+        public async Task<ObjectResult> Get(string id)
         {
             if (!Streamer.ValidId(id))
             {
@@ -71,7 +70,7 @@ namespace PruebaTecnica.Controllers
         }
 
         [HttpGet("streams")]
-        public async Task<IActionResult> GetLiveStreams()
+        public async Task<ObjectResult> GetLiveStreams()
         {
             using (HttpClient client = new HttpClient())
             {
