@@ -46,7 +46,7 @@ namespace PruebaTecnica.Controllers
             else
             {
                 string errorContent = await respuesta.Content.ReadAsStringAsync();
-                return NotFound();
+                return Problem();
             }
         }
 
