@@ -1,4 +1,6 @@
-﻿namespace PruebaTecnica.Models
+﻿using System.Text.RegularExpressions;
+
+namespace PruebaTecnica.Models
 {
     public class Streamer
     {
@@ -14,5 +16,18 @@
         public string[] Tags { get; set; }
         public string[] Content_classification_labels { get; set; }
         public bool Is_branded_content { get; set; }
+
+        private const string ID_FORMAT = "^[0-9]{9}$";
+
+        public static bool ValidId(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return false;
+            }
+
+            var esValido =  Regex.IsMatch(id, ID_FORMAT);
+            return esValido;
+        }
     }
 }

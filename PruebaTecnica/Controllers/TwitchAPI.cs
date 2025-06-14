@@ -5,6 +5,7 @@ using PruebaTecnica.Responses;
 using System.Net.Http.Headers;
 
 
+
 namespace PruebaTecnica.Controllers
 {
     [ApiController]
@@ -21,27 +22,35 @@ namespace PruebaTecnica.Controllers
         public TwitchAPI() { }
 
         [HttpGet("user")]
-        public async Task<Streamer> Get(string id)
+        public async Task<IActionResult> Get(string id)
         {
-            using (HttpClient client = new HttpClient())
+            if (!Streamer.ValidId(id))
             {
-                AuthResponse auth = await GetAccessToken();
-
-                client.DefaultRequestHeaders.Add("Client-ID", CLIENT_ID);
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth.Access_token);
-
-                HttpResponseMessage respuesta = await client.GetAsync(URL_GET + id);
-                if (respuesta.IsSuccessStatusCode)
-                {
-                    var data = await respuesta.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<GetByIdResponse>(data).Data.FirstOrDefault();
-                }
-                else
-                {
-                    string errorContent = await respuesta.Content.ReadAsStringAsync();
-                    return null;
-                }
+                return BadRequest("El id no tiene el formato correcto");
             }
+            HttpResponseMessage respuesta = await CallGetClientById(id);
+            if (respuesta.IsSuccessStatusCode)
+            {
+                var data = await respuesta.Content.ReadAsStringAsync();
+                Streamer streamer = JsonConvert.DeserializeObject<GetByIdResponse>(data).Data.FirstOrDefault();
+                return Ok(streamer);
+            }
+            else
+            {
+                string errorContent = await respuesta.Content.ReadAsStringAsync();
+                return NotFound();
+            }
+        }
+
+        private async Task<HttpResponseMessage> CallGetClientById(string id)
+        {
+            using HttpClient client = new HttpClient();
+            AuthResponse auth = await GetAccessToken();
+
+            client.DefaultRequestHeaders.Add("Client-ID", CLIENT_ID);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth.Access_token);
+            
+            return await client.GetAsync(URL_GET + id);
         }
 
         [HttpGet("streams")]
