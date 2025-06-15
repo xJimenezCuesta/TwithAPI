@@ -26,6 +26,10 @@ Responses ->
 Models ->
 
     En la carpeta Models están definidos los objetos de devolvemos. 
+
+Service ->
+
+    Realiza las llamadas a la api de Twitch.
     
 
 JSON ->
@@ -49,9 +53,9 @@ Puntos de mejora:
 
     - Se pide la autenticación al principio de cada llamada, el token no puede caducarse, pero se hacen 2 llamadas a la api de Twitch por cada petición. 
 
-    - Las url, el ClientId y el ClientSecret están escritas directamente en la api, por lo que no son configurables. 
+    - Las url, el ClientId y el ClientSecret están escritas directamente en código, por lo que no son configurables. 
     
-    - Las lógicas de las llamadas, la autenticación y la gestión de errores están juntas. 
+    - Las lógicas de la llamada y la gestión de errores están juntas.
 
 
 
