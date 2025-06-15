@@ -41,22 +41,26 @@ namespace PruebaTecnica.Controllers
             {
                 return StatusCode(500, new Excepcion("Internal server error."));
             }
-            else 
-            { 
-                var data = await respuesta.Content.ReadAsStringAsync();
-                Streamer streamer = JsonConvert.DeserializeObject<GetByIdResponse>(data).Data.FirstOrDefault();
-                
-                if (streamer == null)
-                {
-                    return NotFound( new Excepcion("User not found."));
-                }
-                else
-                {
-                    return Ok(streamer);
-                }   
+            else
+            {
+                return await ReturnStreamer(respuesta);
             }
         }
 
+        private async Task<ObjectResult> ReturnStreamer(HttpResponseMessage respuesta)
+        {
+            var data = await respuesta.Content.ReadAsStringAsync();
+            Streamer streamer = JsonConvert.DeserializeObject<GetByIdResponse>(data).Data.FirstOrDefault();
+
+            if (streamer == null)
+            {
+                return NotFound(new Excepcion("User not found."));
+            }
+            else
+            {
+                return Ok(streamer);
+            }
+        }
 
         [HttpGet("streams")]
         public async Task<ObjectResult> GetLiveStreams()
@@ -67,18 +71,21 @@ namespace PruebaTecnica.Controllers
             {
                 return Unauthorized(new Excepcion("Unauthorized. Twitch access token is invalid or has expired."));
             }
-
-            if (respuesta.IsSuccessStatusCode)
-            {
-                var data = await respuesta.Content.ReadAsStringAsync();
-                var streams = JsonConvert.DeserializeObject<GetLiveStreamsResponse>(data);
-                return Ok(streams.Data);
-            }
-            else
+            else if (!respuesta.IsSuccessStatusCode)
             {
                 return StatusCode(500, new Excepcion("Internal server error."));
             }
+            else
+            {
+                return await ReturnStreams(respuesta);
+            }
         }
 
+        private async Task<ObjectResult> ReturnStreams(HttpResponseMessage respuesta)
+        {
+            var data = await respuesta.Content.ReadAsStringAsync();
+            var streams = JsonConvert.DeserializeObject<GetLiveStreamsResponse>(data);
+            return Ok(streams.Data);
+        }
     }
 }
