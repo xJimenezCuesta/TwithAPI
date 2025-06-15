@@ -1,8 +1,6 @@
-﻿using System.Text.RegularExpressions;
-
+﻿
 namespace PruebaTecnica.Models
 {
-
     public class Streamer
     {
         public string Id { get; set; }
@@ -24,19 +22,5 @@ namespace PruebaTecnica.Models
         public int View_count { get; set; }
 
         public DateTime Created_at { get; set; }
-
-
-        private const string ID_FORMAT = "^[0-9]{1,10}$";
-
-        public static bool ValidId(string id)
-        {
-            if (string.IsNullOrEmpty(id) || id == "0")
-            {
-                return false;
-            }
-
-            var esValido =  Regex.IsMatch(id, ID_FORMAT);
-            return esValido;
-        }
     }
 }

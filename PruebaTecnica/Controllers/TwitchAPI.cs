@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using PruebaTecnica.Models;
 using PruebaTecnica.Responses;
 using PruebaTecnica.Services;
+using PruebaTecnica.Utils;
 using System.Net;
 
 
@@ -25,7 +26,7 @@ namespace PruebaTecnica.Controllers
         [HttpGet("user")]
         public async Task<ObjectResult> Get(string id)
         {
-            if (!Streamer.ValidId(id))
+            if (!FormatValidator.ValidateId(id))
             {
                 return BadRequest(new Excepcion("Invalid or missing 'id' parameter."));
             }
@@ -70,7 +71,6 @@ namespace PruebaTecnica.Controllers
 
             if (respuesta.IsSuccessStatusCode)
             {
-
                 var data = await respuesta.Content.ReadAsStringAsync();
                 var streams = JsonConvert.DeserializeObject<GetLiveStreamsResponse>(data);
                 return Ok(streams.Data);
