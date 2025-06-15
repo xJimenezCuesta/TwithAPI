@@ -35,9 +35,13 @@ namespace PruebaTecnica.Controllers
             {
                 return Unauthorized(new Excepcion("Unauthorized. Twitch access token is invalid or has expired."));
             }
-
-            if (respuesta.IsSuccessStatusCode)
+            else if (!respuesta.IsSuccessStatusCode)
             {
+                string errorContent = await respuesta.Content.ReadAsStringAsync();
+                return StatusCode(500, new Excepcion("Internal server error."));
+            }
+            else 
+            { 
                 var data = await respuesta.Content.ReadAsStringAsync();
                 Streamer streamer = JsonConvert.DeserializeObject<GetByIdResponse>(data).Data.FirstOrDefault();
                 
@@ -48,13 +52,7 @@ namespace PruebaTecnica.Controllers
                 else
                 {
                     return Ok(streamer);
-                }
-                
-            }
-            else
-            {
-                string errorContent = await respuesta.Content.ReadAsStringAsync();
-                return StatusCode(500, new Excepcion("Internal server error.") );
+                }   
             }
         }
 
@@ -72,33 +70,35 @@ namespace PruebaTecnica.Controllers
         [HttpGet("streams")]
         public async Task<ObjectResult> GetLiveStreams()
         {
-            using (HttpClient client = new HttpClient())
+            HttpResponseMessage respuesta = await CallGetLiveStreams();
+
+            if (respuesta.StatusCode == HttpStatusCode.Unauthorized)
             {
-                AuthResponse auth = await GetAccessToken();
-
-                client.DefaultRequestHeaders.Add("Client-ID", CLIENT_ID);
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth.Access_token);
-
-                HttpResponseMessage respuesta = await client.GetAsync(URL_LIVE_STREAMS);
-
-                if (respuesta.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    return Unauthorized(new Excepcion("Unauthorized. Twitch access token is invalid or has expired."));
-                }
-
-                if (respuesta.IsSuccessStatusCode)
-                {
-
-                    var data = await respuesta.Content.ReadAsStringAsync();
-                    var streams = JsonConvert.DeserializeObject<GetLiveStreamsResponse>(data);
-                    return Ok(streams.Data);
-                }
-                else
-                {
-                    string errorContent = await respuesta.Content.ReadAsStringAsync();
-                    return StatusCode(500, new Excepcion("Internal server error."));
-                }
+                return Unauthorized(new Excepcion("Unauthorized. Twitch access token is invalid or has expired."));
             }
+
+            if (respuesta.IsSuccessStatusCode)
+            {
+
+                var data = await respuesta.Content.ReadAsStringAsync();
+                var streams = JsonConvert.DeserializeObject<GetLiveStreamsResponse>(data);
+                return Ok(streams.Data);
+            }
+            else
+            {
+                string errorContent = await respuesta.Content.ReadAsStringAsync();
+                return StatusCode(500, new Excepcion("Internal server error."));
+            }
+        }
+        private async Task<HttpResponseMessage> CallGetLiveStreams()
+        {
+            using HttpClient client = new HttpClient();
+            AuthResponse auth = await GetAccessToken();
+
+            client.DefaultRequestHeaders.Add("Client-ID", CLIENT_ID);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth.Access_token);
+
+            return await client.GetAsync(URL_LIVE_STREAMS);
         }
 
         private async Task<AuthResponse> GetAccessToken()
