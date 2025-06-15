@@ -39,7 +39,6 @@ namespace PruebaTecnica.Controllers
             }
             else if (!respuesta.IsSuccessStatusCode)
             {
-                string errorContent = await respuesta.Content.ReadAsStringAsync();
                 return StatusCode(500, new Excepcion("Internal server error."));
             }
             else 
@@ -77,7 +76,6 @@ namespace PruebaTecnica.Controllers
             }
             else
             {
-                string errorContent = await respuesta.Content.ReadAsStringAsync();
                 return StatusCode(500, new Excepcion("Internal server error."));
             }
         }
