@@ -29,7 +29,7 @@ namespace PruebaTecnica.Controllers
                 return BadRequest(new Excepcion("Invalid or missing 'id' parameter."));
             }
             
-            HttpResponseMessage respuesta = await CallGetClientById(id);
+            HttpResponseMessage respuesta =  await GetResponse(URL_GET + id);
 
             if (respuesta.StatusCode == HttpStatusCode.Unauthorized)
             {
@@ -56,21 +56,11 @@ namespace PruebaTecnica.Controllers
             }
         }
 
-        private async Task<HttpResponseMessage> CallGetClientById(string id)
-        {
-            using HttpClient client = new HttpClient();
-            AuthResponse auth = await GetAccessToken();
-
-            client.DefaultRequestHeaders.Add("Client-ID", CLIENT_ID);
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth.Access_token);
-
-            return await client.GetAsync(URL_GET + id);
-        }
 
         [HttpGet("streams")]
         public async Task<ObjectResult> GetLiveStreams()
         {
-            HttpResponseMessage respuesta = await CallGetLiveStreams();
+            HttpResponseMessage respuesta = await GetResponse(URL_LIVE_STREAMS);
 
             if (respuesta.StatusCode == HttpStatusCode.Unauthorized)
             {
@@ -90,35 +80,34 @@ namespace PruebaTecnica.Controllers
                 return StatusCode(500, new Excepcion("Internal server error."));
             }
         }
-        private async Task<HttpResponseMessage> CallGetLiveStreams()
+
+        private async Task<string> GetAccessToken()
         {
             using HttpClient client = new HttpClient();
-            AuthResponse auth = await GetAccessToken();
+            
+            var content = new FormUrlEncodedContent(new[]
+            {
+                new KeyValuePair<string, string>("client_id", CLIENT_ID),
+                new KeyValuePair<string, string>("client_secret", CLIEN_SECRET),
+                new KeyValuePair<string, string>("grant_type", "client_credentials"),
+            });
+
+            var response = await client.PostAsync(URL_OAUTH, content);
+            string tokenBody = await response.Content.ReadAsStringAsync();
+
+            AuthResponse auth = JsonConvert.DeserializeObject<AuthResponse>(tokenBody);
+            return auth.Access_token;
+        }
+
+        private async Task<HttpResponseMessage> GetResponse(string url)
+        {
+            using HttpClient client = new HttpClient();
 
             client.DefaultRequestHeaders.Add("Client-ID", CLIENT_ID);
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth.Access_token);
-
-            return await client.GetAsync(URL_LIVE_STREAMS);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await GetAccessToken());
+            
+            return await client.GetAsync(url);
         }
 
-        private async Task<AuthResponse> GetAccessToken()
-        {
-            using (HttpClient client = new HttpClient())
-            {
-                var content = new FormUrlEncodedContent(new[]
-                {
-                    new KeyValuePair<string, string>("client_id", CLIENT_ID),
-                    new KeyValuePair<string, string>("client_secret", CLIEN_SECRET),
-                    new KeyValuePair<string, string>("grant_type", "client_credentials"),
-                });
-
-                var response = await client.PostAsync(URL_OAUTH, content);
-                string tokenBody = await response.Content.ReadAsStringAsync();
-
-                return JsonConvert.DeserializeObject<AuthResponse>(tokenBody);
-            }
-        }
-
-       
     }
 }
