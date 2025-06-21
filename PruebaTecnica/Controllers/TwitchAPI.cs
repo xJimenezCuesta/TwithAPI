@@ -13,14 +13,11 @@ namespace PruebaTecnica.Controllers
     [Route("analytics")]
     public class TwitchAPI : ControllerBase
     {
-        const string URL_GET = "https://api.twitch.tv/helix/users?id=";
-        const string URL_LIVE_STREAMS = "https://api.twitch.tv/helix/streams";
-
-        private readonly AuthService _authService;
+        private readonly TwitchService _authService;
 
         public TwitchAPI()
         { 
-            _authService = new AuthService();
+            _authService = new TwitchService();
         }
 
         [HttpGet("user")]
@@ -31,7 +28,7 @@ namespace PruebaTecnica.Controllers
                 return BadRequest(new Excepcion("Invalid or missing 'id' parameter."));
             }
             
-            HttpResponseMessage respuesta =  await _authService.GetResponse(URL_GET + id);
+            HttpResponseMessage respuesta =  await _authService.GetStreamerById(id);
 
             if (respuesta.StatusCode == HttpStatusCode.Unauthorized)
             {
@@ -65,7 +62,7 @@ namespace PruebaTecnica.Controllers
         [HttpGet("streams")]
         public async Task<ObjectResult> GetLiveStreams()
         {
-            HttpResponseMessage respuesta = await _authService.GetResponse(URL_LIVE_STREAMS);
+            HttpResponseMessage respuesta = await _authService.GetStreams();
 
             if (respuesta.StatusCode == HttpStatusCode.Unauthorized)
             {

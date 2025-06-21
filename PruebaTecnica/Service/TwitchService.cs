@@ -4,24 +4,37 @@ using System.Net.Http.Headers;
 
 namespace PruebaTecnica.Services
 {
-    public class AuthService
+    public class TwitchService
     {
+
+        const string URL_GET = "https://api.twitch.tv/helix/users?id=";
+        const string URL_LIVE_STREAMS = "https://api.twitch.tv/helix/streams";
 
         const string CLIENT_ID = "dlkwq9i2okmcofq0420dba20reo4uw";
         const string CLIEN_SECRET = "8c0ky0ee4nj92xj8fvk1bq0l8v46lp";
 
         const string URL_OAUTH = "https://id.twitch.tv/oauth2/token";
 
-        public AuthService() { }
+        public TwitchService() { }
 
-        public async Task<HttpResponseMessage> GetResponse(string url)
+        public async Task<HttpResponseMessage> GetStreamerById(string id)
         {
             using HttpClient client = new HttpClient();
 
             client.DefaultRequestHeaders.Add("Client-ID", CLIENT_ID);
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await GetAccessToken());
 
-            return await client.GetAsync(url);
+            return await client.GetAsync(URL_GET + id);
+        }
+
+        public async Task<HttpResponseMessage> GetStreams()
+        {
+            using HttpClient client = new HttpClient();
+
+            client.DefaultRequestHeaders.Add("Client-ID", CLIENT_ID);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await GetAccessToken());
+
+            return await client.GetAsync(URL_LIVE_STREAMS);
         }
 
 
