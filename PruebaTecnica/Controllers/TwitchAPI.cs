@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using PruebaTecnica.Models;
 using PruebaTecnica.Responses;
-using PruebaTecnica.Services;
+using PruebaTecnica.Service;
 using PruebaTecnica.Utils;
 using System.Net;
 
@@ -13,11 +13,11 @@ namespace PruebaTecnica.Controllers
     [Route("analytics")]
     public class TwitchAPI : ControllerBase
     {
-        private readonly TwitchService _authService;
+        private readonly ITwitchService _twitchService;
 
-        public TwitchAPI()
-        { 
-            _authService = new TwitchService();
+        public TwitchAPI(ITwitchService twitchService)
+        {
+            _twitchService = twitchService;
         }
 
         [HttpGet("user")]
@@ -28,7 +28,7 @@ namespace PruebaTecnica.Controllers
                 return BadRequest(new Excepcion("Invalid or missing 'id' parameter."));
             }
             
-            HttpResponseMessage respuesta =  await _authService.GetStreamerById(id);
+            HttpResponseMessage respuesta =  await _twitchService.GetStreamerById(id);
 
             if (respuesta.StatusCode == HttpStatusCode.Unauthorized)
             {
@@ -62,7 +62,7 @@ namespace PruebaTecnica.Controllers
         [HttpGet("streams")]
         public async Task<ObjectResult> GetLiveStreams()
         {
-            HttpResponseMessage respuesta = await _authService.GetStreams();
+            HttpResponseMessage respuesta = await _twitchService.GetStreams();
 
             if (respuesta.StatusCode == HttpStatusCode.Unauthorized)
             {

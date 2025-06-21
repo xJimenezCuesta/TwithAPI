@@ -2,9 +2,9 @@
 using PruebaTecnica.Responses;
 using System.Net.Http.Headers;
 
-namespace PruebaTecnica.Services
+namespace PruebaTecnica.Service
 {
-    public class TwitchService
+    public class TwitchService : ITwitchService
     {
 
         const string URL_GET = "https://api.twitch.tv/helix/users?id=";

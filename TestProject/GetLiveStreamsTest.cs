@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PruebaTecnica.Controllers;
+using PruebaTecnica.Service;
 
 namespace TestProject
 {
@@ -10,7 +11,7 @@ namespace TestProject
         [SetUp]
         public void Setup()
         {
-            _twitchAPI = new TwitchAPI();
+            _twitchAPI = new TwitchAPI(new TwitchService());
         }
 
         [Test]
